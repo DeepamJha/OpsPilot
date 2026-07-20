@@ -21,26 +21,26 @@ export function AiInvestigationPanel() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35 }}
-      className="mt-6 overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(135deg,rgba(129,104,255,0.12),rgba(15,23,42,0.9),rgba(16,185,129,0.10))] p-5 shadow-[0_24px_80px_rgba(2,6,23,0.28)] sm:p-6"
+      className="mt-6 overflow-hidden rounded-[30px] border border-theme bg-ai-panel p-5 shadow-panel sm:p-6"
     >
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-200">
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1.5 text-sm text-emerald-700 dark:text-emerald-200">
             <Sparkles className="h-4 w-4" />
             Powered by SigNoz + MCP
           </div>
-          <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white">AI Investigation</h2>
-          <p className="mt-2 text-sm leading-6 text-slate-400">
+          <h2 className="mt-4 text-2xl font-semibold tracking-tight text-primary">AI Investigation</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
             The assistant isolated a high-probability incident chain from telemetry and surfaced the best next actions for the on-call team.
           </p>
         </div>
 
-        <div className="rounded-[20px] border border-white/10 bg-slate-900/60 p-4">
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-200">
-            <ShieldCheck className="h-4 w-4 text-emerald-300" />
+        <div className="rounded-[20px] border border-theme bg-surface-panel p-4">
+          <div className="flex items-center gap-2 text-sm font-medium text-secondary">
+            <ShieldCheck className="h-4 w-4 text-teal-600 dark:text-emerald-300" />
             Auto-generated incident summary
           </div>
-          <p className="mt-2 text-sm text-slate-400">Confidence is high enough to suggest a controlled mitigation rollout.</p>
+          <p className="mt-2 text-sm text-muted">Confidence is high enough to suggest a controlled mitigation rollout.</p>
         </div>
       </div>
 
@@ -58,28 +58,28 @@ export function AiInvestigationPanel() {
       </div>
 
       <div className="mt-6 grid gap-4 xl:grid-cols-[1.15fr_0.85fr]">
-        <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-5">
-          <div className="flex items-center gap-2 text-sm font-semibold text-slate-200">
-            <BrainCircuit className="h-4 w-4 text-violet-300" />
+        <div className="rounded-3xl border border-theme bg-surface-panel p-5">
+          <div className="flex items-center gap-2 text-sm font-semibold text-secondary">
+            <BrainCircuit className="h-4 w-4 text-indigo-600 dark:text-violet-300" />
             Affected Services
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             {services.map((service) => (
-              <span key={service} className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300">
+              <span key={service} className="rounded-full border border-theme bg-surface-subtle px-3 py-1.5 text-sm text-secondary">
                 {service}
               </span>
             ))}
           </div>
 
-          <div className="mt-5 rounded-[20px] border border-white/10 bg-slate-950/60 p-4">
-            <div className="flex items-center gap-2 text-sm font-semibold text-slate-200">
-              <Sparkles className="h-4 w-4 text-emerald-300" />
+          <div className="mt-5 rounded-[20px] border border-theme bg-surface-inset p-4">
+            <div className="flex items-center gap-2 text-sm font-semibold text-secondary">
+              <Sparkles className="h-4 w-4 text-teal-600 dark:text-emerald-300" />
               Recommendations
             </div>
-            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <ul className="mt-3 space-y-2 text-sm text-muted">
               {recommendations.map((recommendation) => (
                 <li key={recommendation} className="flex items-start gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-violet-400" />
+                  <span className="mt-1 h-2 w-2 rounded-full bg-indigo-500 dark:bg-violet-400" />
                   {recommendation}
                 </li>
               ))}
@@ -87,8 +87,8 @@ export function AiInvestigationPanel() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-5">
-          <p className="text-sm font-semibold text-slate-200">Suggested actions</p>
+        <div className="rounded-3xl border border-theme bg-surface-panel p-5">
+          <p className="text-sm font-semibold text-secondary">Suggested actions</p>
           <div className="mt-4 space-y-3">
             <Button variant="primary" className="w-full justify-between">
               Open Trace <ArrowRight className="h-4 w-4" />
@@ -99,7 +99,7 @@ export function AiInvestigationPanel() {
             <Button variant="success" className="w-full justify-between">
               Ask MCP <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button variant="default" className="w-full justify-between border border-emerald-500/20 bg-emerald-500/10 text-emerald-200 hover:bg-emerald-500/15">
+            <Button variant="default" className="w-full justify-between border border-emerald-500/20 bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/15 dark:text-emerald-200">
               Deploy Fix <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

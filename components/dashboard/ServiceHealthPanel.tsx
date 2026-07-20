@@ -18,14 +18,14 @@ export function ServiceHealthPanel() {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: 0.05 }}
-      className="rounded-[28px] border border-white/10 bg-slate-900/70 p-5 shadow-[0_18px_50px_rgba(2,6,23,0.28)]"
+      className="rounded-[28px] border border-theme bg-surface-panel p-5 shadow-panel"
     >
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <h3 className="text-lg font-semibold">Service Health</h3>
-          <p className="mt-1 text-sm text-slate-400">Runtime health and contract signal score</p>
+          <h3 className="text-lg font-semibold text-primary">Service Health</h3>
+          <p className="mt-1 text-sm text-muted">Runtime health and contract signal score</p>
         </div>
-        <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-300">
+        <span className="rounded-full border border-theme bg-surface-subtle px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-secondary">
           5 services
         </span>
       </div>

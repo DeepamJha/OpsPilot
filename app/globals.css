@@ -3,13 +3,141 @@
 @tailwind utilities;
 
 :root {
+  color-scheme: light;
+  --app-background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.14), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.14), transparent 32%),
+    linear-gradient(135deg, #f8fafc 0%, #eef2ff 52%, #ecfeff 100%);
+  --app-frame: rgba(255, 255, 255, 0.72);
+  --surface-panel: rgba(255, 255, 255, 0.88);
+  --surface-panel-strong: rgba(255, 255, 255, 0.96);
+  --surface-inset: rgba(248, 250, 252, 0.9);
+  --surface-subtle: rgba(241, 245, 249, 0.84);
+  --surface-hover: rgba(15, 23, 42, 0.06);
+  --surface-active: rgba(79, 70, 229, 0.12);
+  --border-muted: rgba(15, 23, 42, 0.1);
+  --border-strong: rgba(15, 23, 42, 0.18);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --shadow-panel: 0 18px 50px rgba(15, 23, 42, 0.1);
+  --shadow-panel-hover: 0 22px 60px rgba(15, 23, 42, 0.16);
+  --overlay-background: rgba(15, 23, 42, 0.38);
+  --ai-panel-background: linear-gradient(135deg, rgba(79, 70, 229, 0.14), rgba(255, 255, 255, 0.92), rgba(20, 184, 166, 0.16));
+  --chart-grid: rgba(100, 116, 139, 0.18);
+  --chart-reference: rgba(15, 23, 42, 0.18);
+  --tooltip-background: rgba(255, 255, 255, 0.96);
+  --tooltip-border: rgba(15, 23, 42, 0.12);
+}
+
+.dark {
   color-scheme: dark;
+  --app-background: radial-gradient(circle at top right, rgba(129, 104, 255, 0.16), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(49, 211, 157, 0.1), transparent 30%),
+    linear-gradient(135deg, #060816 0%, #090b11 100%);
+  --app-frame: rgba(2, 6, 23, 0.6);
+  --surface-panel: rgba(15, 23, 42, 0.7);
+  --surface-panel-strong: rgba(15, 23, 42, 0.94);
+  --surface-inset: rgba(2, 6, 23, 0.6);
+  --surface-subtle: rgba(255, 255, 255, 0.05);
+  --surface-hover: rgba(255, 255, 255, 0.1);
+  --surface-active: rgba(139, 92, 246, 0.15);
+  --border-muted: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+  --shadow-panel: 0 18px 50px rgba(2, 6, 23, 0.28);
+  --shadow-panel-hover: 0 22px 60px rgba(2, 6, 23, 0.34);
+  --overlay-background: rgba(2, 6, 23, 0.7);
+  --ai-panel-background: linear-gradient(135deg, rgba(129, 104, 255, 0.12), rgba(15, 23, 42, 0.9), rgba(16, 185, 129, 0.1));
+  --chart-grid: rgba(148, 163, 184, 0.12);
+  --chart-reference: rgba(255, 255, 255, 0.16);
+  --tooltip-background: #020617;
+  --tooltip-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  @apply min-h-screen bg-slate-950 text-slate-100 antialiased;
+  @apply min-h-screen antialiased;
+  background: var(--app-background);
+  color: var(--text-primary);
 }
 
 * {
   @apply box-border;
+}
+
+@layer utilities {
+  .bg-app {
+    background: var(--app-background);
+  }
+
+  .bg-app-frame {
+    background-color: var(--app-frame);
+  }
+
+  .bg-ai-panel {
+    background: var(--ai-panel-background);
+  }
+
+  .bg-surface-panel {
+    background-color: var(--surface-panel);
+  }
+
+  .bg-surface-strong {
+    background-color: var(--surface-panel-strong);
+  }
+
+  .bg-surface-inset {
+    background-color: var(--surface-inset);
+  }
+
+  .bg-surface-subtle {
+    background-color: var(--surface-subtle);
+  }
+
+  .bg-surface-active {
+    background-color: var(--surface-active);
+  }
+
+  .bg-overlay {
+    background-color: var(--overlay-background);
+  }
+
+  .border-theme {
+    border-color: var(--border-muted);
+  }
+
+  .border-theme-strong {
+    border-color: var(--border-strong);
+  }
+
+  .text-primary {
+    color: var(--text-primary);
+  }
+
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-faint {
+    color: var(--text-faint);
+  }
+
+  .shadow-panel {
+    box-shadow: var(--shadow-panel);
+  }
+
+  .hover-surface:hover {
+    background-color: var(--surface-hover);
+  }
+
+  .hover-border-theme:hover {
+    border-color: var(--border-strong);
+  }
 }

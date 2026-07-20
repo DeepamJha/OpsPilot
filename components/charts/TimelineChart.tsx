@@ -32,12 +32,23 @@ export function TimelineChart() {
             <stop offset="100%" stopColor="#34d399" stopOpacity={0.02} />
           </linearGradient>
         </defs>
-        <CartesianGrid stroke="rgba(148,163,184,0.12)" vertical={false} />
-        <XAxis dataKey="time" axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} />
-        <YAxis axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} />
-        <Tooltip contentStyle={{ backgroundColor: '#020617', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px' }} />
+        <CartesianGrid stroke="var(--chart-grid)" vertical={false} />
+        <XAxis dataKey="time" axisLine={false} tickLine={false} tick={{ fill: 'var(--text-faint)', fontSize: 12 }} />
+        <YAxis axisLine={false} tickLine={false} tick={{ fill: 'var(--text-faint)', fontSize: 12 }} />
+        <Tooltip
+          contentStyle={{
+            backgroundColor: 'var(--tooltip-background)',
+            border: '1px solid var(--tooltip-border)',
+            borderRadius: '12px',
+            boxShadow: 'var(--shadow-panel)',
+            color: 'var(--text-primary)',
+          }}
+          itemStyle={{ color: 'var(--text-secondary)' }}
+          labelStyle={{ color: 'var(--text-primary)' }}
+          cursor={{ stroke: 'var(--chart-reference)' }}
+        />
         {markers.map((marker) => (
-          <ReferenceLine key={marker.label} x={marker.x} stroke="rgba(255,255,255,0.16)" strokeDasharray="4 4" />
+          <ReferenceLine key={marker.label} x={marker.x} stroke="var(--chart-reference)" strokeDasharray="4 4" />
         ))}
         <Area type="monotone" dataKey="p95" stroke="#34d399" strokeWidth={2} fillOpacity={1} fill="url(#p95Fill)" />
         <Area type="monotone" dataKey="latency" stroke="#8b5cf6" strokeWidth={2.4} fillOpacity={1} fill="url(#latencyFill)" />

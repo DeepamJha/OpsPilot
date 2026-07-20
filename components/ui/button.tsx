@@ -6,15 +6,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-violet-400',
   {
     variants: {
       variant: {
-        default: 'bg-white/10 text-white hover:bg-white/15',
-        outline: 'border border-white/10 bg-transparent text-slate-200 hover:bg-white/10',
-        ghost: 'bg-transparent text-slate-300 hover:bg-white/10 hover:text-white',
-        primary: 'bg-gradient-to-r from-violet-500 to-violet-600 text-white hover:from-violet-600 hover:to-violet-500',
-        success: 'bg-emerald-500/10 text-emerald-300 hover:bg-emerald-500/15',
+        default: 'bg-surface-subtle text-primary hover-surface',
+        outline: 'border border-theme bg-transparent text-secondary hover-surface hover:text-primary',
+        ghost: 'bg-transparent text-secondary hover-surface hover:text-primary',
+        primary: 'bg-gradient-to-r from-indigo-500 to-teal-500 text-white hover:from-indigo-600 hover:to-teal-600 dark:from-violet-500 dark:to-violet-600 dark:hover:from-violet-600 dark:hover:to-violet-500',
+        success: 'bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/15 dark:text-emerald-300',
       },
       size: {
         default: 'h-10 px-3 py-2',
